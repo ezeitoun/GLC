@@ -5,11 +5,12 @@ This PowerShell script is designed to simplify the process of gathering Galaxy L
 Extract the provided ZIP file to a preferred location (placing the script on the local client machine is recommended).<br />
 Once completed, you have two options: create a shortcut to the GLC.BAT file or run GLC Create (with Admin rights) to generate a shortcut on the Desktop, complete with a default hotkey (Ctrl + Shift + F12).<br />
 If you opt for automatic creation, The following shortcut will be create on the desktop:<br />
-![image001](https://github.com/ezeitoun/GLC/assets/57022870/462672d8-7178-4e6d-a94c-0a6e9f7073fd)
+![image001](https://github.com/ezeitoun/GLC/assets/57022870/948dfbd5-acfc-4a7e-9230-5729ddce6933)
+
 
 You can either double-click the shortcut to execute the Galaxy Logs Collector or press Ctrl+Shift+F12 within the client (or any other location).<br />
 A popup will appear, prompting for an incident report/description.
-![GLC-POPUP](https://github.com/ezeitoun/GLC/assets/57022870/577ddf7e-0675-4703-9b30-4ee9516fdfdb)<br />
+![GLC-POPUP](https://github.com/ezeitoun/GLC/assets/57022870/7199d9f2-9e8e-467b-8b9e-eeb507190817)<br />
 In this window, users can input details about their activities when the issue occurred.<br />
 Clicking "Save and Close" will collect the logs (including DMP generation or copying a Galaxy Client generated one) and close (kill) the Dalet Galaxy client.<br />
 Alternatively, clicking "Save" will collect the logs (and generate a DMP file) without terminating the client. This option is suitable for freezes that typically resolve after a period.
