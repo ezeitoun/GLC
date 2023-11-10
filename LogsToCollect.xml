@@ -1,0 +1,21 @@
+<LogCollector>
+	<SiteName>GTVLH</SiteName>
+	<Hosts>
+	<Host>
+	<Hostname>DaletSRV1</Hostname>
+	<HostAlias>DaletSRV1</HostAlias>	
+		<Agents>
+		<Agent>DbServer_1</Agent>
+		<Agent>BrioMediaAgent_10</Agent>
+		</Agents>
+	</Host>
+	<Host>
+	<Hostname>DaletSRV2</Hostname>
+	<HostAlias>DaletSRV2</HostAlias>	
+		<Agents>
+		<Agent>DaletPlusServer_1</Agent>
+		<Agent>DbServer_2</Agent>
+		</Agents>
+	</Host>
+	</Hosts>
+</LogCollector>
