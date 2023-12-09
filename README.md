@@ -3,7 +3,7 @@
 This PowerShell script is designed to simplify the process of gathering Galaxy Logs (both user and server-side) for troubleshooting purposes.
 
 Extract the provided ZIP file to a preferred location (placing the script on the local client machine is recommended).<br />
-Once completed, you have two options: create a shortcut to the GLC.BAT file or run GLC Create (with Admin rights) to generate a shortcut on the Desktop, complete with a default hotkey (Ctrl + Shift + F12).<br />
+Once completed, you have two options: create a shortcut to the GLC.BAT file or run GLC.ps1 Create (with Admin rights) to generate a shortcut on the Desktop, complete with a default hotkey (Ctrl + Shift + F12).<br />
 If you opt for automatic creation, The following shortcut will be create on the desktop:<br />
 ![image001](https://github.com/ezeitoun/GLC/assets/57022870/948dfbd5-acfc-4a7e-9230-5729ddce6933)
 
@@ -24,7 +24,7 @@ As of version 1.1.0, the script collects the following:
   - Collect Galaxy Client Logs
   - Collect Galaxy Servers Logs
   - Gather Windows Environment Variables
-⚠️ To enable DMP support, Please download ProcDump (https://learn.microsoft.com/en-us/sysinternals/downloads/procdump) and extract it to the GLC location.<br />
+⚠️ To enable DMP support, Please download ProcDump x64 (https://learn.microsoft.com/en-us/sysinternals/downloads/procdump) and extract it to the GLC location.<br />
 (Galaxy Client Screenshot Capture Improvement, Server-side log collections by Laurnet Goetz (lgoetz@dalet.com)
 
 The script can be configure by modifying the following variables:
