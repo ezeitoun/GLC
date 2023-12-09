@@ -1,12 +1,12 @@
 <#-----------------------------------------------------------------------------------------------------------------------------
-    Galaxy Logs Collector Version 4.02
+    Galaxy Logs Collector Version 1.1.0
     Script, Knowledge & Bugs, Eran Binyamin Zeitoun (ezeitoun@dalet.com)
 -------------------------------------------------------------------------------------------------------------------------------#>
 
 Add-Type -AssemblyName System.Windows.Forms
 
 $strComputerName = $env:COMPUTERNAME                                                        #Get Computer Name from Environment Variables
-$strCurrentTime = (get-date).ToString("ddmmyyyy_hhmmss")                                    #Current Time/Date as String
+$strCurrentTime = (get-date).ToString("yyyyMMdd_HHmmss")                                    #Current Time/Date as String
 $strProcessName = "DaletGalaxy"                                                             #Process Name
 $strToolsPath = "C:\GLC\"                                                                   #3rd party tools path
 $strStoragePath = "C:\GLC\Files\"                                                           #Compressed archive targtet path
@@ -153,7 +153,7 @@ ProgBar "Collecting Galaxy Client Logs" 65
 $DaletLogs = Get-ChildItem "C:\ProgramData\Dalet\DaletLogs\" -Recurse | Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-$IntHours) }
 foreach ($item in $DaletLogs) {
     if ($item.PSIsContainer -eq $false) {
-        $NewfileName = $strWorkPath + $strCurrentTime + $item.Name + ".Log"
+        $NewfileName = $strWorkPath + $strCurrentTime + $item.Name
         Copy-Item $item.FullName -Destination $NewFileName 
     }
 }
@@ -175,7 +175,7 @@ if ([System.IO.File]::Exists($StrServersLogsXML)) {
             Write-Host "dealing with agent $agent"     
             $path = "\\$hostName\c$\ProgramData\Dalet\DaletLogs\$siteName-$agent@$hostAlias"
             $serverLogs = Get-ChildItem "$path" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-            $NewfileName = $strWorkPath + $strCurrentTime + $serverLogs.Name + ".Log"
+            $NewfileName = $strWorkPath + $strCurrentTime + $serverLogs.Name
             Copy-Item $serverLogs.FullName -Destination $NewFileName
         }
     }
@@ -188,7 +188,10 @@ Get-ChildItem env: | Out-File $TempPath
  
 <# Compress all files into a single Zip #>
 ProgBar "Compressing Everything" 90
-Compress-Archive -Path $strWorkPath -DestinationPath $strDestination 
+$compressionLevel = [System.IO.Compression.CompressionLevel]::Optimal
+$includeBaseDirectory = $false
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+[System.IO.Compression.ZipFile]::CreateFromDirectory("$strWorkPath","$strDestination",$compressionLevel,$includeBaseDirectory)
 
 ProgBar "Galaxy Logs Collection Completed!" 100
 
