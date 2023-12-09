@@ -9,11 +9,11 @@ $strComputerName = $env:COMPUTERNAME                                            
 $strCurrentTime = (get-date).ToString("yyyyMMdd_HHmmss")                                    #Current Time/Date as String
 $strProcessName = "DaletGalaxy"                                                             #Process Name
 $strToolsPath = "C:\GLC\"                                                                   #3rd party tools path
-$strStoragePath = "C:\GLC\Files\"                                                           #Compressed archive targtet path
+$strStoragePath = "C:\GLC\Files\"                                                           #Compressed archive target path
 $strWorkPath = $env:TEMP + "\GLC\"                                                          #Temp files path
 $StrServersLogsXML = "\\yourShare\LogsToCollect.xml"                                        #Galaxy site XML file
 $BolClose = $true                                                                           #Display Save and Close button
-$strDestination = ($strStoragePath + $strCurrentTime + "_" + $strComputerName + ".zip")     #Compressed archive file name]
+$strDestination = ($strStoragePath + $strCurrentTime + "_" + $strComputerName + ".zip")     #Compressed archive file name
 $ScriptPath = $MyInvocation.MyCommand.Path                                                  #Script source path
 $IntHours = 4                                                                               #Logs Collection Range (Hours)
 
@@ -181,7 +181,7 @@ if ([System.IO.File]::Exists($StrServersLogsXML)) {
     }
 }
 
-<# Gather Windows Enviroment Varibales #>
+<# Gather Windows Enviroment Variables #>
 ProgBar "Collecting Environment Settings" 85
 $TempPath = $strWorkPath + $strCurrentTime + "_Enviroment.txt"
 Get-ChildItem env: | Out-File $TempPath
