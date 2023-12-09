@@ -181,9 +181,9 @@ if ([System.IO.File]::Exists($StrServersLogsXML)) {
     }
 }
 
-<# Gather Windows Enviroment Variables #>
+<# Gather Windows Environment Variables #>
 ProgBar "Collecting Environment Settings" 85
-$TempPath = $strWorkPath + $strCurrentTime + "_Enviroment.txt"
+$TempPath = $strWorkPath + $strCurrentTime + "_Environment.txt"
 Get-ChildItem env: | Out-File $TempPath
  
 <# Compress all files into a single Zip #>
