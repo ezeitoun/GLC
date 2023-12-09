@@ -1,4 +1,4 @@
-# Galaxy Logs Collector v1.02
+# Galaxy Logs Collector v1.1.0
 
 This PowerShell script is designed to simplify the process of gathering Galaxy Logs (both user and server-side) for troubleshooting purposes.
 
@@ -15,7 +15,7 @@ In this window, users can input details about their activities when the issue oc
 Clicking "Save and Close" will collect the logs (including DMP generation or copying a Galaxy Client generated one) and close (kill) the Dalet Galaxy client.<br />
 Alternatively, clicking "Save" will collect the logs (and generate a DMP file) without terminating the client. This option is suitable for freezes that typically resolve after a period.
 
-As of version 1.02, the script collects the following:
+As of version 1.1.0, the script collects the following:
   - Input User for Incident Report
   - Generate or Copy DMP File (⚠️)
   - Capture Galaxy Client Screenshot
@@ -37,7 +37,7 @@ The script can be configure by modifying the following variables:
 - $IntHours (default 4), Galaxy Client log collection range (in hours).
 
 Server-side log collection:
-In this updated GLC version (1.02), it is now feasible to collect particular agent logs alongside the local logs of the host where the script is initiated. <br />
+In this updated GLC version (1.1.0), it is now feasible to collect particular agent logs alongside the local logs of the host where the script is initiated. <br />
 This is achieved through the configuration of an XML file that specifies the desired servers and agents for the log gathering process. <br />
 We advise against the wholesale collection of logs from all agents on every machine, as it may have an adverse impact on network traffic.<br />
 Instead, we recommend a targeted approach, focusing on specific strategic agents such as dbServers, DaletPlusServers, and NATServers, as these are commonly implicated in most issues requiring investigation.<br />
